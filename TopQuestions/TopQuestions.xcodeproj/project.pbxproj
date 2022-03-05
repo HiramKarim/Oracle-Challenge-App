@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F11BC1927D415B500013CC8 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11BC1827D415B500013CC8 /* MainVC.swift */; };
 		1F11BC1B27D421FE00013CC8 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11BC1A27D421FE00013CC8 /* DetailVC.swift */; };
+		1F11BC1D27D4264D00013CC8 /* QuestionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11BC1C27D4264D00013CC8 /* QuestionCellView.swift */; };
 		1F95C70A27D40F9200CFA1D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F95C70927D40F9200CFA1D0 /* AppDelegate.swift */; };
 		1F95C70C27D40F9200CFA1D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F95C70B27D40F9200CFA1D0 /* SceneDelegate.swift */; };
 		1F95C71327D40F9300CFA1D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F95C71227D40F9300CFA1D0 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		1F11BC1827D415B500013CC8 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		1F11BC1A27D421FE00013CC8 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		1F11BC1C27D4264D00013CC8 /* QuestionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCellView.swift; sourceTree = "<group>"; };
 		1F95C70627D40F9200CFA1D0 /* TopQuestions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopQuestions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F95C70927D40F9200CFA1D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F95C70B27D40F9200CFA1D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				1F11BC1827D415B500013CC8 /* MainVC.swift */,
+				1F11BC1C27D4264D00013CC8 /* QuestionCellView.swift */,
 			);
 			path = "Main Module";
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				1F95C70A27D40F9200CFA1D0 /* AppDelegate.swift in Sources */,
 				1F11BC1B27D421FE00013CC8 /* DetailVC.swift in Sources */,
 				1F11BC1927D415B500013CC8 /* MainVC.swift in Sources */,
+				1F11BC1D27D4264D00013CC8 /* QuestionCellView.swift in Sources */,
 				1F95C70C27D40F9200CFA1D0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
