@@ -10,10 +10,27 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+//        let window = UIWindow(frame: UIScreen.main.bounds)
+//
+//        var rootVC:UIViewController!
+//        rootVC = UINavigationController(rootViewController: MainVC())
+//
+//        window.rootViewController = rootVC
+//
+//        self.window = window
+//        self.window?.makeKeyAndVisible()
+        
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: UIColor.black, // changes color
+            NSAttributedString.Key.font: UIFont(name: "Futura-Bold", size: 17)! // changes font
+        ]
+
+        UINavigationBar.appearance().titleTextAttributes = attrs
+        
         return true
     }
 
