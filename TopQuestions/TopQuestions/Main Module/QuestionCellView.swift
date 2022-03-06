@@ -45,6 +45,8 @@ class QuestionCellView: UITableViewCell {
         return UIImageView.makeImage(for: .viewType)
     }()
     
+    private var stackContainer: UIStackView!
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -57,16 +59,32 @@ class QuestionCellView: UITableViewCell {
     
     private func configCellView() {
         
+        let firstStack = UIStackView(arrangedSubviews: [reputationImage, questionReputation])
+        firstStack.alignment = .fill
+        firstStack.axis = .horizontal
+        firstStack.spacing = 10
+        
+        let secondStack = UIStackView(arrangedSubviews: [answerQuestionImage, questionAnswerCount])
+        secondStack.alignment = .fill
+        secondStack.axis = .horizontal
+        secondStack.spacing = 10
+        
+        let thirdStack = UIStackView(arrangedSubviews: [viewCountImage, questionViewCount])
+        thirdStack.alignment = .fill
+        thirdStack.axis = .horizontal
+        thirdStack.spacing = 10
+        
+        stackContainer = UIStackView(arrangedSubviews: [firstStack, secondStack, thirdStack])
+        stackContainer.alignment = .fill
+        stackContainer.axis = .horizontal
+        stackContainer.spacing = 30
+        stackContainer.translatesAutoresizingMaskIntoConstraints = false
+        
         self.contentView.addSubview(questionTitle)
         self.contentView.addSubview(questionTags)
         self.contentView.addSubview(questionAskedDate)
         
-        self.contentView.addSubview(reputationImage)
-        self.contentView.addSubview(questionReputation)
-        
-        //self.contentView.addSubview(questionAnswerCount)
-        //self.contentView.addSubview(questionViewCount)
-        
+        self.contentView.addSubview(stackContainer)
         
         NSLayoutConstraint.activate([
             questionTitle.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
@@ -80,15 +98,9 @@ class QuestionCellView: UITableViewCell {
             questionAskedDate.topAnchor.constraint(equalTo: questionTags.bottomAnchor, constant: 10),
             questionAskedDate.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
             
-            reputationImage.topAnchor.constraint(equalTo: questionAskedDate.bottomAnchor, constant: 10),
-            reputationImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
-            reputationImage.widthAnchor.constraint(equalToConstant: 20),
-            reputationImage.heightAnchor.constraint(equalToConstant: 20),
-            reputationImage.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -20),
-            
-            questionReputation.topAnchor.constraint(equalTo: questionAskedDate.bottomAnchor, constant: 10),
-            questionReputation.leadingAnchor.constraint(equalTo: reputationImage.trailingAnchor, constant: 5),
-            questionReputation.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -20),
+            stackContainer.topAnchor.constraint(equalTo: questionAskedDate.bottomAnchor, constant: 10),
+            stackContainer.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
+            stackContainer.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -20),
         ])
         
     }
