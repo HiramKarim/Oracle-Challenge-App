@@ -22,6 +22,10 @@ final class MainVC: UITableViewController {
         
         self.view.backgroundColor = .white
         
+        self.tableView.register(QuestionCellView.self, forCellReuseIdentifier: "questioncell")
+        self.tableView.estimatedRowHeight = 250
+        self.tableView.rowHeight = UITableView.automaticDimension
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -36,11 +40,16 @@ extension MainVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
-        
-        // cell.textLabel?.text = "\(indexPath.row)"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "questioncell", for: indexPath) as? QuestionCellView
+        else {
+            return UITableViewCell()
+        }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
 }
