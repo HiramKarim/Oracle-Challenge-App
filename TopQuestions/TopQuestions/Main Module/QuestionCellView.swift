@@ -105,4 +105,14 @@ class QuestionCellView: UITableViewCell {
         
     }
     
+    func configCellData(with topQuestion:Items) {
+        self.questionTitle.text = topQuestion.title ?? ""
+        self.questionTags.text = topQuestion.getFormattedTags()
+        self.questionAskedDate.text = "Asked on \(topQuestion.getCreationDateFormatted())"
+        
+        self.questionReputation.text = topQuestion.score?.formatNumber()
+        self.questionAnswerCount.text = topQuestion.answerCount?.formatNumber()
+        self.questionViewCount.text = topQuestion.viewCount?.formatNumber()
+    }
+    
 }

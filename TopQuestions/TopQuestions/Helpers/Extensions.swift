@@ -30,25 +30,21 @@ extension UILabel {
         switch labelType {
         case .title:
             label.textColor = .black
-            label.text = "SwiftUI - How do I change the background color of a View? SwiftUI - How do I change the background color of a View? SwiftUI - How do I change the background color of a View?"
             label.numberOfLines = 10
-            label.font = UIFont.init(name: "Arial-Black", size: 25)
+            label.font = UIFont.boldSystemFont(ofSize: 18)
             break
         case .tag:
             label.textColor = .blue
-            label.text = "view, background, background-color, modifier, swiftUI, view, background, background-color, modifier, swiftUI"
             label.numberOfLines = 3
-            label.font = UIFont.init(name: "Arial", size: 15)
+            label.font = UIFont.systemFont(ofSize: 15)
             break
         case .askedDate:
             label.textColor = .lightGray
-            label.text = "Asked on Sep 15th, 2019"
-            label.font = UIFont.init(name: "Arial", size: 15)
+            label.font = UIFont.systemFont(ofSize: 15)
             break
         case .insights:
             label.textColor = .cyan
-            label.text = "50"
-            label.font = UIFont.init(name: "Arial", size: 20)
+            label.font = UIFont.systemFont(ofSize: 15)
             break
         }
         
@@ -78,5 +74,63 @@ extension UIImageView {
         
         
         return imageView
+    }
+}
+
+extension Date {
+    static func convertToFormattedDate(from timeInterval:Double) -> String {
+        
+        if timeInterval <= 0 {
+            return ""
+        }
+        
+        let date = Date(timeIntervalSince1970: timeInterval)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "PST")
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        let strDate = dateFormatter.string(from: date)
+        return strDate
+    }
+}
+
+extension Double {
+    func reduceScale(to places: Int) -> Double {
+        let multiplier = pow(10, Double(places))
+        let newDecimal = multiplier * self
+        let truncated = Double(Int(newDecimal))
+        let originalDecimal = truncated / multiplier
+        return originalDecimal
+    }
+}
+
+extension Int {
+    func formatNumber() -> String {
+        let n = self
+        let num = abs(Double(n))
+        let sign = (n < 0) ? "-" : ""
+
+        switch num {
+        case 1_000_000_000...:
+            var formatted = num / 1_000_000_000
+            formatted = formatted.reduceScale(to: 1)
+            return "\(sign)\(formatted)B"
+
+        case 1_000_000...:
+            var formatted = num / 1_000_000
+            formatted = formatted.reduceScale(to: 1)
+            return "\(sign)\(formatted)M"
+
+        case 1_000...:
+            var formatted = num / 1_000
+            formatted = formatted.reduceScale(to: 1)
+            return "\(sign)\(formatted)K"
+
+        case 0...:
+            return "\(n)"
+
+        default:
+            return "\(sign)\(n)"
+        }
     }
 }

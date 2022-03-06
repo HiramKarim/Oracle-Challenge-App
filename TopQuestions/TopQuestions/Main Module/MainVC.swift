@@ -32,6 +32,20 @@ final class MainVC: UITableViewController {
         self.tableView.dataSource = self
         
         mainVM.loadTopQuestions()
+        mainVM.showErrorCallback = showErrorCallback
+        mainVM.loadTableCallback = loadTableCallback
+    }
+    
+    private func showErrorCallback(_ error: Error) {
+        DispatchQueue.main.async {
+            
+        }
+    }
+    
+    private func loadTableCallback() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
 }
@@ -39,7 +53,7 @@ final class MainVC: UITableViewController {
 extension MainVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return mainVM.getTotalItemList()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,6 +62,8 @@ extension MainVC {
         else {
             return UITableViewCell()
         }
+        
+        cell.configCellData(with: mainVM.getQuestionItem(at: indexPath.row))
         
         return cell
     }

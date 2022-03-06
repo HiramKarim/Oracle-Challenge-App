@@ -21,8 +21,8 @@ struct Items:Decodable {
     let answerCount:Int?
     let score:Int?
     let lastActivityDate:Int?
-    let creationDate:Int?
-    let lastEditDate:Int?
+    let creationDate:Double?
+    let lastEditDate:Double?
     let questionID:Int?
     let contentLicense:String?
     let link:String?
@@ -61,5 +61,42 @@ struct Owner:Decodable {
         case profileImage = "profile_image"
         case displayName = "display_name"
         case link
+    }
+}
+
+extension TopQuestionsResponse {
+    static func returnEmptyQuestionMock() -> Items {
+        return Items(tags: [],
+                     owner: nil,
+                     isAnswered: nil,
+                     viewCount: nil,
+                     acceptedAnswerID: nil,
+                     answerCount: nil,
+                     score: nil,
+                     lastActivityDate: nil,
+                     creationDate: nil,
+                     lastEditDate: nil,
+                     questionID: nil,
+                     contentLicense: nil,
+                     link: nil,
+                     title: nil)
+    }
+}
+
+extension Items {
+    func getFormattedTags() -> String {
+        var newTags:String = ""
+        
+        _ = self.tags?.compactMap({ tag in
+            newTags += tag + ","
+        })
+        
+        _ = newTags.removeLast()
+        
+        return newTags
+    }
+    
+    func getCreationDateFormatted() -> String {
+        return Date.convertToFormattedDate(from: creationDate ?? 0)
     }
 }
