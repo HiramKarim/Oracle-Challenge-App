@@ -9,6 +9,8 @@ import UIKit
 
 final class MainVC: UITableViewController {
     
+    let mainVM = MainViewModel()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -28,6 +30,8 @@ final class MainVC: UITableViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        mainVM.loadTopQuestions()
     }
     
 }

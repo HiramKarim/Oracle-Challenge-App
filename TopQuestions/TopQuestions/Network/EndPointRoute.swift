@@ -13,7 +13,7 @@ enum QuestionsEndpoint {
 
 extension QuestionsEndpoint: EndPoint {
     var baseURL: URL {
-        guard let url = URL(string: "") else {
+        guard let url = URL(string: Constants.baseUrl) else {
             fatalError("baseURL could not be configured.")
         }
         return url
@@ -22,7 +22,7 @@ extension QuestionsEndpoint: EndPoint {
     var path: String {
         switch self {
         case .fetchQuestions:
-            return ""
+            return Constants.booksAPI
         }
     }
     

@@ -17,6 +17,8 @@
 		1F94E8E527D486EA00919B5F /* EndPointRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94E8E427D486EA00919B5F /* EndPointRoute.swift */; };
 		1F94E8E727D4882000919B5F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94E8E627D4881F00919B5F /* Constants.swift */; };
 		1F94E8EA27D488ED00919B5F /* TopQuestionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94E8E927D488ED00919B5F /* TopQuestionsModel.swift */; };
+		1F94E8EC27D4920700919B5F /* ApiProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94E8EB27D4920700919B5F /* ApiProtocols.swift */; };
+		1F94E8EE27D4929500919B5F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94E8ED27D4929500919B5F /* APIService.swift */; };
 		1F95C70A27D40F9200CFA1D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F95C70927D40F9200CFA1D0 /* AppDelegate.swift */; };
 		1F95C70C27D40F9200CFA1D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F95C70B27D40F9200CFA1D0 /* SceneDelegate.swift */; };
 		1F95C71327D40F9300CFA1D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F95C71227D40F9300CFA1D0 /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		1F94E8E427D486EA00919B5F /* EndPointRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointRoute.swift; sourceTree = "<group>"; };
 		1F94E8E627D4881F00919B5F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1F94E8E927D488ED00919B5F /* TopQuestionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopQuestionsModel.swift; sourceTree = "<group>"; };
+		1F94E8EB27D4920700919B5F /* ApiProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProtocols.swift; sourceTree = "<group>"; };
+		1F94E8ED27D4929500919B5F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		1F95C70627D40F9200CFA1D0 /* TopQuestions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopQuestions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F95C70927D40F9200CFA1D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F95C70B27D40F9200CFA1D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,19 +126,13 @@
 		1F94E8DC27D474DD00919B5F /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				1F94E8DD27D474E600919B5F /* API */,
 				1F94E8E027D4820200919B5F /* HTTPRequestMethod.swift */,
 				1F94E8E227D482CA00919B5F /* APIClient.swift */,
 				1F94E8E427D486EA00919B5F /* EndPointRoute.swift */,
+				1F94E8EB27D4920700919B5F /* ApiProtocols.swift */,
+				1F94E8ED27D4929500919B5F /* APIService.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		1F94E8DD27D474E600919B5F /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		1F94E8E827D488C700919B5F /* Models */ = {
@@ -337,7 +335,9 @@
 				1F94E8EA27D488ED00919B5F /* TopQuestionsModel.swift in Sources */,
 				1F94E8E527D486EA00919B5F /* EndPointRoute.swift in Sources */,
 				1F94E8E127D4820200919B5F /* HTTPRequestMethod.swift in Sources */,
+				1F94E8EE27D4929500919B5F /* APIService.swift in Sources */,
 				1F11BC1927D415B500013CC8 /* MainVC.swift in Sources */,
+				1F94E8EC27D4920700919B5F /* ApiProtocols.swift in Sources */,
 				1F11BC1D27D4264D00013CC8 /* QuestionCellView.swift in Sources */,
 				1F95C70C27D40F9200CFA1D0 /* SceneDelegate.swift in Sources */,
 				1F94E8E327D482CA00919B5F /* APIClient.swift in Sources */,

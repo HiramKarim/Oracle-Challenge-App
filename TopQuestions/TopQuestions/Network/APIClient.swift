@@ -13,8 +13,9 @@ protocol APIClient {
 }
 
 extension APIClient {
-    func fetch<T>(endpoint: EndPoint, type: T.Type) -> AnyPublisher<T, Error> where T:Decodable {
-        var urlRequest = URLRequest(url: endpoint.baseURL.appendingPathComponent(endpoint.path))
+    func fetch<T>(endpoint: EndPoint, type: T.Type) -> AnyPublisher<T, Error> where T: Decodable {
+        let newURL = "\(endpoint.baseURL)\(endpoint.path)"
+        var urlRequest = URLRequest(url: URL(string: newURL)!)
         urlRequest.httpMethod = endpoint.method.rawValue
         endpoint.headers?.forEach {
             urlRequest.setValue($0.key, forHTTPHeaderField: $0.value)
