@@ -9,7 +9,9 @@ import Foundation
 import Combine
 
 protocol MainViewModelInputs {
-    
+    var showErrorCallback:((_ error: Error)->Void)? { get set }
+    var loadTableCallback:(()->Void)? { get set }
+    func goToQuestionDetails(usingQuestionID questionID:Int)
 }
 
 protocol MainViewModelOutputs {
@@ -24,6 +26,8 @@ protocol MainViewModelOutputs {
 protocol MainViewModelResponser: MainViewModelInputs, MainViewModelOutputs {}
 
 class MainViewModel:MainViewModelResponser {
+    
+    weak var coordinator: AppCoordinator!
     
     private var topQuestionsArray: [Items]?
     private let topQuestionsApiService: TopQuestionsAPI
@@ -70,5 +74,9 @@ class MainViewModel:MainViewModelResponser {
         } else {
             return 0
         }
+    }
+    
+    func goToQuestionDetails(usingQuestionID questionID:Int) {
+        coordinator.goToQuestionDetails(usingQuestionID: questionID)
     }
 }

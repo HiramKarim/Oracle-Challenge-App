@@ -14,16 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//
-//        var rootVC:UIViewController!
-//        rootVC = UINavigationController(rootViewController: MainVC())
-//
-//        window.rootViewController = rootVC
-//
-//        self.window = window
-//        self.window?.makeKeyAndVisible()
-        
         let attrs = [
             NSAttributedString.Key.foregroundColor: UIColor.black, // changes color
             NSAttributedString.Key.font: UIFont(name: "Futura-Bold", size: 17)! // changes font

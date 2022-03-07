@@ -12,6 +12,7 @@
 		1F11BC1D27D4264D00013CC8 /* QuestionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11BC1C27D4264D00013CC8 /* QuestionCellView.swift */; };
 		1F851ABA27D5833300958C86 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F851AB927D5833300958C86 /* QuestionView.swift */; };
 		1F851ABC27D58B4700958C86 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F851ABB27D58B4700958C86 /* DetailViewModel.swift */; };
+		1F851ABF27D5E77E00958C86 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F851ABE27D5E77E00958C86 /* Coordinator.swift */; };
 		1F94E8DB27D473B600919B5F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94E8DA27D473B600919B5F /* Extensions.swift */; };
 		1F94E8DF27D47DE800919B5F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94E8DE27D47DE800919B5F /* MainViewModel.swift */; };
 		1F94E8E127D4820200919B5F /* HTTPRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94E8E027D4820200919B5F /* HTTPRequestMethod.swift */; };
@@ -53,6 +54,7 @@
 		1F11BC1C27D4264D00013CC8 /* QuestionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCellView.swift; sourceTree = "<group>"; };
 		1F851AB927D5833300958C86 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		1F851ABB27D58B4700958C86 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		1F851ABE27D5E77E00958C86 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1F94E8DA27D473B600919B5F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1F94E8DE27D47DE800919B5F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		1F94E8E027D4820200919B5F /* HTTPRequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestMethod.swift; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		1F851ABD27D5E76B00958C86 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1F851ABE27D5E77E00958C86 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		1F94E8D927D473A800919B5F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +189,7 @@
 		1F95C70827D40F9200CFA1D0 /* TopQuestions */ = {
 			isa = PBXGroup;
 			children = (
+				1F851ABD27D5E76B00958C86 /* Coordinator */,
 				1F851AB827D5831000958C86 /* Custom Views */,
 				1F94E8E827D488C700919B5F /* Models */,
 				1F94E8DC27D474DD00919B5F /* Network */,
@@ -351,6 +362,7 @@
 				1F94E8E127D4820200919B5F /* HTTPRequestMethod.swift in Sources */,
 				1F94E8EE27D4929500919B5F /* APIService.swift in Sources */,
 				1F11BC1927D415B500013CC8 /* MainVC.swift in Sources */,
+				1F851ABF27D5E77E00958C86 /* Coordinator.swift in Sources */,
 				1F851ABA27D5833300958C86 /* QuestionView.swift in Sources */,
 				1F94E8EC27D4920700919B5F /* ApiProtocols.swift in Sources */,
 				1F11BC1D27D4264D00013CC8 /* QuestionCellView.swift in Sources */,

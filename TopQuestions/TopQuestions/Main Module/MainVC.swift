@@ -9,7 +9,7 @@ import UIKit
 
 final class MainVC: UITableViewController {
     
-    let mainVM = MainViewModel()
+    private var viewModel:MainViewModelResponser?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,9 +31,9 @@ final class MainVC: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        mainVM.loadTopQuestions()
-        mainVM.showErrorCallback = showErrorCallback
-        mainVM.loadTableCallback = loadTableCallback
+        viewModel?.loadTopQuestions()
+        viewModel?.showErrorCallback = showErrorCallback
+        viewModel?.loadTableCallback = loadTableCallback
     }
     
     private func showErrorCallback(_ error: Error) {
@@ -48,12 +48,16 @@ final class MainVC: UITableViewController {
         }
     }
     
+    func makeViewModel(viewModel:MainViewModelResponser) {
+        self.viewModel = viewModel
+    }
+    
 }
 
 extension MainVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mainVM.getTotalItemList()
+        return viewModel?.getTotalItemList() ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,17 +67,13 @@ extension MainVC {
             return UITableViewCell()
         }
         
-        cell.configCellData(with: mainVM.getQuestionItem(at: indexPath.row))
+        cell.configCellData(with: viewModel?.getQuestionItem(at: indexPath.row) ?? TopQuestionsResponse.returnEmptyQuestionMock())
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = DetailVC()
-        let viewmodel = DetailViewModel()
-        viewmodel.setQuestionID(questionID: mainVM.getQuestionID(at: indexPath.row))
-        detailVC.makeViewModel(viewModel: viewmodel)
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        viewModel?.goToQuestionDetails(usingQuestionID: viewModel?.getQuestionID(at: indexPath.row) ?? 0)
     }
     
 }
