@@ -27,6 +27,7 @@ struct Items:Decodable {
     let contentLicense:String?
     let link:String?
     let title:String?
+    let body:String?
     
     private enum CodingKeys : String, CodingKey {
         case tags
@@ -43,6 +44,7 @@ struct Items:Decodable {
         case contentLicense = "content_license"
         case link
         case title
+        case body
     }
 }
 
@@ -79,7 +81,8 @@ extension TopQuestionsResponse {
                      questionID: nil,
                      contentLicense: nil,
                      link: nil,
-                     title: nil)
+                     title: nil,
+                     body: nil)
     }
 }
 

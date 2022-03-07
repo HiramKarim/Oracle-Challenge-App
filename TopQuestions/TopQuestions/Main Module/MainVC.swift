@@ -69,7 +69,7 @@ extension MainVC {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.navigationController?.pushViewController(DetailVC(), animated: true)
     }
     
 }
