@@ -10,11 +10,26 @@ import Combine
 
 protocol APIClient {
     func fetch<T>(endpoint: EndPoint, type: T.Type) -> AnyPublisher<T, Error> where T:Decodable
+    func fetchQuestionDetail<T>(questionID:Int, endpoint: EndPoint, type: T.Type) -> AnyPublisher<T, Error> where T:Decodable
 }
 
 extension APIClient {
     func fetch<T>(endpoint: EndPoint, type: T.Type) -> AnyPublisher<T, Error> where T: Decodable {
         let newURL = "\(endpoint.baseURL)\(endpoint.path)"
+        var urlRequest = URLRequest(url: URL(string: newURL)!)
+        urlRequest.httpMethod = endpoint.method.rawValue
+        endpoint.headers?.forEach {
+            urlRequest.setValue($0.key, forHTTPHeaderField: $0.value)
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: urlRequest)
+            .map(\.data)
+            .decode(type: T.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    func fetchQuestionDetail<T>(questionID:Int, endpoint: EndPoint, type: T.Type) -> AnyPublisher<T, Error> where T: Decodable {
+        let newURL = "\(endpoint.baseURL)\(endpoint.path.replacingOccurrences(of: "<questionID>", with: String(questionID)))"
         var urlRequest = URLRequest(url: URL(string: newURL)!)
         urlRequest.httpMethod = endpoint.method.rawValue
         endpoint.headers?.forEach {

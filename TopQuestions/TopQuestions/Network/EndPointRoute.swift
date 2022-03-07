@@ -9,6 +9,7 @@ import Foundation
 
 enum QuestionsEndpoint {
     case fetchQuestions
+    case fetchQuestionDetail
 }
 
 extension QuestionsEndpoint: EndPoint {
@@ -22,7 +23,9 @@ extension QuestionsEndpoint: EndPoint {
     var path: String {
         switch self {
         case .fetchQuestions:
-            return Constants.booksAPI
+            return Constants.topQuestionsListAPIURL
+        case .fetchQuestionDetail:
+            return Constants.questionDetailAPIURL
         }
     }
     
@@ -30,12 +33,16 @@ extension QuestionsEndpoint: EndPoint {
         switch self {
         case .fetchQuestions:
             return .get
+        case .fetchQuestionDetail:
+            return .get
         }
     }
     
     var headers: [String : String]? {
         switch self {
         case .fetchQuestions:
+            return nil
+        case .fetchQuestionDetail:
             return nil
         }
     }

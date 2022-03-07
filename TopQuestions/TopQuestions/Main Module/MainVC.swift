@@ -69,7 +69,11 @@ extension MainVC {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(DetailVC(), animated: true)
+        let detailVC = DetailVC()
+        let viewmodel = DetailViewModel()
+        viewmodel.setQuestionID(questionID: mainVM.getQuestionID(at: indexPath.row))
+        detailVC.makeViewModel(viewModel: viewmodel)
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }

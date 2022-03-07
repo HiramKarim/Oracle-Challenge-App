@@ -9,4 +9,5 @@ import Combine
 
 protocol TopQuestionsAPI: APIClient {
     func fetchTopQuestions() -> AnyPublisher<TopQuestionsResponse, Error>
+    func fetchQuestionDetail(questionID:Int) -> AnyPublisher<TopQuestionsResponse, Error>
 }

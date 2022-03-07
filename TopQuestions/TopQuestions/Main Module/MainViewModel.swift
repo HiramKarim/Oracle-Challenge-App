@@ -18,6 +18,7 @@ protocol MainViewModelOutputs {
     func loadTopQuestions()
     func getTotalItemList() -> Int
     func getQuestionItem(at index:Int) -> Items
+    func getQuestionID(at index:Int) -> Int
 }
 
 protocol MainViewModelResponser: MainViewModelInputs, MainViewModelOutputs {}
@@ -61,5 +62,13 @@ class MainViewModel:MainViewModelResponser {
         guard let items = topQuestionsArray else { return TopQuestionsResponse.returnEmptyQuestionMock() }
         if index > items.count { return TopQuestionsResponse.returnEmptyQuestionMock() }
         return items[index]
+    }
+    
+    func getQuestionID(at index:Int) -> Int {
+        if let items = topQuestionsArray {
+            return items[index].questionID ?? 0
+        } else {
+            return 0
+        }
     }
 }
