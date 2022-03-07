@@ -12,6 +12,8 @@ enum LabelType {
     case tag
     case askedDate
     case insights
+    case textbody
+    case normal
 }
 
 enum ImageType {
@@ -45,6 +47,16 @@ extension UILabel {
         case .insights:
             label.textColor = .cyan
             label.font = UIFont.systemFont(ofSize: 15)
+            break
+        case .textbody:
+            label.textColor = .black
+            label.numberOfLines = 0
+            label.font = UIFont.systemFont(ofSize: 18)
+            break
+        case .normal:
+            label.textColor = .black
+            label.numberOfLines = 0
+            label.font = UIFont.systemFont(ofSize: 10)
             break
         }
         
@@ -131,6 +143,34 @@ extension Int {
 
         default:
             return "\(sign)\(n)"
+        }
+    }
+}
+
+extension String {
+    func htmlAttributedString() -> NSAttributedString? {
+        guard let data = self.data(using: .utf8) else {
+            return nil
+        }
+
+        return try? NSAttributedString(
+            data: data,
+            options: [.documentType: NSAttributedString.DocumentType.html],
+            documentAttributes: nil
+        )
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
         }
     }
 }
